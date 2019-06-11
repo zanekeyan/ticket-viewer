@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from "react";
+import store from "./store";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Provider } from "react-redux";
+import { fetchTickets} from './store/actions/TicketActions'
+import Home from "./view/Home";
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+class App extends Component{
+
+    componentDidMount() {
+        alert('dispatching action')
+        store.dispatch(fetchTickets());
+    }
+    render () {
+        return (
+            <div className="App">
+            <header className="App-header">
+            <Provider store={store}>
+                <Router>
+                <div>
+                    <Route exact path="/" component={Home} />
+                </div>
+                </Router>
+            </Provider>
+                
+            </header>
+            </div>
+        );
+    }
 }
+
+
 
 export default App;
