@@ -18,7 +18,8 @@ export default function ticketsReducer(state=initialState , action){
         case REQUEST_TICKETS:
             return {
                 ...state,
-                fetching: true
+                fetching: true,
+                error: null
             }
         case RECIEVE_TICKETS:
             return{
@@ -26,8 +27,8 @@ export default function ticketsReducer(state=initialState , action){
                 fetching: false,
                 ticketItems: action.payload.data.tickets,
                 nextPageUrl: action.payload.data.next_page,
-                prevPageUrl: action.payload.data.previous_page
-
+                prevPageUrl: action.payload.data.previous_page,
+                error: action.payload.data.message
             }
         case RECIEVE_TICKETS_ERROR:
             return{

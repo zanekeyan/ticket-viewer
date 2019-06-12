@@ -18,32 +18,27 @@ let base_64_data = buff.toString(BASE_64_ENCODING);
 const app = express();
 app.use(cors());
 
-// var instance = axios.create({
-//     baseURL: `https://zane-k.zendesk.com/api/v2/tickets.json?per_page=${MAX_PER_PAGE}`,
-//     headers: {'Authorization': "Basic " + base_64_data}
-//   });
-
-var baseURL = `https://zane-k.zendesk.com/api/v2/tickets.json?per_page=${MAX_PER_PAGE}`;
-var authHeader = {'Authorization': "Basic " + base_64_data};
+// init axios instance with required infroamtion
+var axiosInstance = axios.create({
+    baseURL: `https://zane-k.zendesk.com/api/v2/tickets.json?per_page=${MAX_PER_PAGE}`,
+    headers: {'Authorization': "Basic " + base_64_data}
+  });
 
 app.get('/tickets', function (req, res) {
     var requestedPageUrl = req.query.requestedPageUrl
 
-    console.log("requested" , requestedPageUrl)
+    // update baseURL if new url is provided , used for previous and next url 
     if(requestedPageUrl !== undefined){
-        console.log("new page requested" , requestedPageUrl)
-        baseURL = requestedPageUrl
-        //console.log("instance base url ==" , instance.baseURL)
+        axiosInstance.defaults.baseURL = requestedPageUrl
     }
 
-    axios.get(baseURL , { headers: authHeader })
+    axiosInstance.get()
             .then((response) => {
                 console.log("Success" , response.data.tickets[0].id)
                 return res.send(response.data);
              })
             .catch((error) => {
                 console.log('token is' ,  base_64_data)
-                console.log(error)
                 return res.send(error);
             });
 });
