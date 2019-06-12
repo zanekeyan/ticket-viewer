@@ -4,18 +4,22 @@ RECIEVE_TICKETS_ERROR } from '../types';
 import axios from'axios';
     
     // handle tickets fetching
-    export const fetchTickets = () => {
+    export const fetchTickets = ( url = null ) => {
         return dispatch => {
             // dispatch action to store
             dispatch(requestTickets())
     
             //fetch tickets from backend
-            axios.get('http://localhost:3001/tickets')
+            axios.get('http://localhost:3001/tickets' , {
+                params: {
+                    requestedPageUrl: url
+                }
+            })
                 // recieve tickets and dispatch action
                 .then(
                     
                     res => { console.log(res.data)
-                        dispatch(recieveTickets(res.data))
+                        dispatch(recieveTickets(res))
                     
                 }
             
@@ -30,9 +34,9 @@ import axios from'axios';
            type: REQUEST_TICKETS,
      });
     
-    const recieveTickets = tickets => ({
+    const recieveTickets = ticketsResponse => ({
          type: RECIEVE_TICKETS, 
-         payload: tickets
+         payload: ticketsResponse
      })
     
     const recieveTicketsError = error => ({

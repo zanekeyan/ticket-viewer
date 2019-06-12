@@ -8,6 +8,8 @@ const initialState = {
     fetching: false,
     ticketItems: null,
     error: null,
+    nextPageUrl: null,
+    prevPageUrl: null,
 }
 
 export default function ticketsReducer(state=initialState , action){
@@ -22,7 +24,10 @@ export default function ticketsReducer(state=initialState , action){
             return{
                 ...state,
                 fetching: false,
-                ticketItems: action.payload
+                ticketItems: action.payload.data.tickets,
+                nextPageUrl: action.payload.data.next_page,
+                prevPageUrl: action.payload.data.previous_page
+
             }
         case RECIEVE_TICKETS_ERROR:
             return{
