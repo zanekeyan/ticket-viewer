@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App snapshot test 1`] = `
+<div
+  className="tickets-list"
+>
+  <ul
+    className="list-group  my-list-group bg-dark list-group-flush "
+  />
+</div>
+`;
+
+exports[`Error snapshot test 1`] = `
+<div
+  className="error-div"
+>
+  <h1>
+     Error: 
+     
+  </h1>
+  <img
+    alt="car icon"
+    className="bug-icon"
+    src="bug.png"
+  />
+</div>
+`;
+
+exports[`Ticket snapshot test 1`] = `
+<div
+  className="ticket-div"
+>
+  <li
+    className="list-group-item bg-dark text-white"
+  >
+    <div
+      className="ticketImage"
+    >
+      <img
+        alt="car icon"
+        className="img-thumbnail"
+        src="ticket.png"
+      />
+    </div>
+    <div
+      className="ticketInfo"
+    >
+      <p>
+         subject: 
+         
+      </p>
+      <p>
+         ticket_id: 
+         
+      </p>
+      <p>
+         created_at: 
+      </p>
+      <button
+        className="btn btn-outline-light shadow-lg"
+        onClick={[Function]}
+        type="button"
+      >
+         Ticket Details 
+      </button>
+    </div>
+  </li>
+</div>
+`;
+
+exports[`TicketInfoModal snapshot test 1`] = `null`;
+
+exports[`TicketList snapshot test 1`] = `
+<div
+  className="tickets-list"
+>
+  <ul
+    className="list-group  my-list-group bg-dark list-group-flush "
+  />
+</div>
+`;

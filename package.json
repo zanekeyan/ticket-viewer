@@ -48,6 +48,11 @@
     ]
   },
   "devDependencies": {
-    "nodemon": "^1.19.1"
+    "check-prop-types": "^1.1.2",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "jest-enzyme": "^7.0.2",
+    "nodemon": "^1.19.1",
+    "react-test-renderer": "^16.8.6"
   }
 }

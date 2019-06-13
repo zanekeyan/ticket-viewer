@@ -20,11 +20,11 @@ const  TicketsList  = props =>{
     }
     
     return (
-        <section className="tickets-list" >
+        <div className="tickets-list" >
             <ul className="list-group  my-list-group bg-dark list-group-flush ">
                 {tickets}
             </ul>
-        </section>
+        </div>
       
     );
   

@@ -16,15 +16,7 @@ import axios from'axios';
                 }
             })
                 // recieve tickets and dispatch action
-                .then(
-                    
-                    res => { console.log(res.data)
-                        dispatch(recieveTickets(res))
-                    
-                }
-            
-            
-            )
+                .then( res => dispatch(recieveTickets(res)))
                 // catch error if available and dispatch error to store
                 .catch(error => dispatch(recieveTicketsError(error.message)))
         }
