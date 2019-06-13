@@ -1,0 +1,10 @@
+.jumbotron {
+    background-color: rgb(12, 58, 104);
+    background-position: center;
+    font-family: sans-serif;
+    background-size: 100% auto;
+    color: white;
+    margin: 0 !important;
+    border-radius: 0 !important;
+  }
+  

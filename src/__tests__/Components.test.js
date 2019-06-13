@@ -9,8 +9,6 @@ import TicketList from '../components/TicketsList'
 import TicketInfoModal from '../components/TicketInfoModal'
 import {emptyTicket} from '../Utils.js/index'
 
-
-
 const setUp = (Component , props={}) => {
     const component = shallow(<Component {...props} />);
     return component;

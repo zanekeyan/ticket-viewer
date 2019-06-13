@@ -7,6 +7,8 @@ import {fetchTickets} from '../store/actions/TicketActions';
 import Error from '../components/Error';
 import TicketInfoModal from '../components/TicketInfoModal'
 import DetailModal from '../components/TicketInfoModal';
+import Header from '../components/Header'
+
 
 
 class Home extends Component {
@@ -84,11 +86,11 @@ class Home extends Component {
 
 
     if (this.props.nextPageUrl !== null && this.props.nextPageUrl !== undefined) {
-      nextButton = <button onClick={() => {this.props.getNextPage(this.props.nextPageUrl)}}> Next </button>;
+      nextButton = <button className="next-button" onClick={() => {this.props.getNextPage(this.props.nextPageUrl)}}> Next </button>;
     } 
     
     if(this.props.prevPageUrl !== null && this.props.prevPageUrl !== undefined ){
-      prevButton = <button onClick={() => this.props.getPrevPage(this.props.prevPageUrl)}> Previous </button>;
+      prevButton = <button className="prev-button" onClick={() => this.props.getPrevPage(this.props.prevPageUrl)}> Previous </button>;
     }
 
     if(this.props.error !== null  && this.props.error !== undefined){
@@ -99,13 +101,18 @@ class Home extends Component {
     
 
     return (
-        <React.Fragment>
-            <DetailModal show={this.state.showModal} onHide={modalClose}  backdrop={true} ticket={this.state.currentlySelectedTicket}  />
-             <TicketsList tickets={this.props.tickets} onShowDetails={modalShow} />
-             {error}
-             {prevButton}
-             {nextButton}
-        </React.Fragment>
+        
+        <div className="main-container-div" >
+            <div className="tickets-container-div">
+                <DetailModal show={this.state.showModal} onHide={modalClose}  backdrop={true} ticket={this.state.currentlySelectedTicket}  />
+                <TicketsList tickets={this.props.tickets} onShowDetails={modalShow} />
+                {error}
+            </div>
+          <div className="pagination-buttons-div">
+            {prevButton}
+            {nextButton}
+          </div>
+        </div>
        
     );
   }
