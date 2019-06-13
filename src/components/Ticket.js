@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import ticketicon from '../ticket.png'
 
 const Ticket = props => {
@@ -26,8 +25,5 @@ const Ticket = props => {
     </div>
     );     
 }
-Ticket.propTypes = {
-    id: PropTypes.string,
-    subject: PropTypes.string
-};
+
 export default Ticket;

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import TicketsList from '../components/TicketsList'
 import {fetchTickets} from '../store/actions/TicketActions';
 import Error from '../components/Error';
@@ -86,11 +85,6 @@ class Home extends Component {
     );
   }
 }
-
-Home.PropType = {
-    tickets: PropTypes.array.isRequired,
-};
-
 // map redux store state to this class props
 const mapStateToProps = state => ({
     tickets: state.tickets.ticketItems,
