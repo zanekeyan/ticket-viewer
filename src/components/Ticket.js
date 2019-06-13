@@ -2,10 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ticketicon from '../ticket.png'
 
-
 const Ticket = props => {
     return (
-        <div className="ticket-div" >
+    <div className="ticket-div" >
        <li className="list-group-item bg-dark text-white">
             <div className="ticketImage">
             <img
@@ -14,26 +13,21 @@ const Ticket = props => {
                 alt="car icon" />
             </div>
             <div className="ticketInfo">
-            <p> subject: {props.subject} </p>
-            <p> ticket_id: {props.id} </p> 
-            <p> created_at: {props.created_at}</p>
-            <button
-                type="button"
-                className="btn btn-outline-light shadow-lg"
-                onClick={() => props.onShowDetails(props.id)} 
-            > Ticket Details </button>
-            
-            
-             
+                <p> subject: {props.subject} </p>
+                <p> ticket_id: {props.id} </p> 
+                <p> created_at: {props.created_at}</p>
+                <button
+                    type="button"
+                    className="btn btn-outline-light shadow-lg"
+                    onClick={() => props.onShowDetails(props.id)} 
+                > Ticket Details </button>    
             </div>
-        </li>
-        </div>
-      );     
+    </li>
+    </div>
+    );     
 }
-
 Ticket.propTypes = {
     id: PropTypes.string,
     subject: PropTypes.string
 };
-
 export default Ticket;

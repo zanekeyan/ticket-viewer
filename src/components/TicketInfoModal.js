@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Modal from "react-bootstrap-modal";
 
+// modal displayed when the ticket details button is clicked , displays ticket information
 class TicketInfoModal extends Component {
   render() {
     return (

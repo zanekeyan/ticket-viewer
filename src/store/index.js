@@ -5,6 +5,7 @@ import reducer from "./reducers/Reducers";
 // init initial store state
 const initialState = {};
 
+export const middlewares = [thunkMiddleware];
 // create store
 const store = createStore( reducer, initialState,
   compose(

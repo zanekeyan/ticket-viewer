@@ -1,8 +1,6 @@
 import {REQUEST_TICKETS ,
 RECIEVE_TICKETS,
 RECIEVE_TICKETS_ERROR } from '../types';
-import axios from'axios';
-import { defer } from 'q';
 
 const initialState = {
     fetching: false,
@@ -14,6 +12,7 @@ const initialState = {
 
 export default function ticketsReducer(state=initialState , action){
 
+    // process provided action , else return unaltered state
     switch(action.type){
         case REQUEST_TICKETS:
             return {

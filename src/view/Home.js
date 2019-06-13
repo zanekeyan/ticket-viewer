@@ -1,50 +1,27 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import Ticket from '../components/Ticket';
 import TicketsList from '../components/TicketsList'
 import {fetchTickets} from '../store/actions/TicketActions';
 import Error from '../components/Error';
-import TicketInfoModal from '../components/TicketInfoModal'
 import DetailModal from '../components/TicketInfoModal';
-import Header from '../components/Header'
-
-
+import { emptyTicket} from '../Utils.js'
 
 class Home extends Component {
 
+    //init state
     constructor(props) {
         super(props);
         this.state = {
             currentTicketsData: null,
             showModal: false,
-            currentlySelectedTicket: { 
-                id: 'empty',
-                subject: 'empty',
-                description: ' ',
-                created_at: ' ',
-                updated_at: ' ',
-                status: ' ',
-                requester_id: ' ',
-                submitter_id: ' ',
-                assignee_id: ' ',
-                organization_id: ' ',
-                group_id: ' ',
-            }
+            currentlySelectedTicket: emptyTicket
         };
       }
-    
 
-
-    componentWillMount(){
-        
-  
+    componentWillMount(){ 
         this.setState({currentTicketsData: this.props.tickets})
-    }
-
-    componentWillReceiveProps(newProps) {
-        
-    }
+     }
 
     componentWillUpdate(){
         if(this.state.currentTicketsData !== this.props.tickets){
@@ -57,51 +34,44 @@ class Home extends Component {
     let prevButton;
     let error;
 
+    // triggered to close Modal of ticket details
     let modalClose = () => this.setState({ showModal: false });
 
+    // triggered when button for ticket details is clicked
     let modalShow = ticket_id => {
     
+     // update the currently selected ticket and show the Modal with information
       this.setState({
         showModal: true,
         currentlySelectedTicket: getSelectedTicketFromId(ticket_id)
       });
-
-
-
     };
 
+    // return the selected ticket to show the details
     var getSelectedTicketFromId = (ticket_id) =>{
-
         for(let i = 0; i < this.props.tickets.length ; i++){
-            
-            console.log('ticket is ' , this.props.tickets[i].id)
             if(this.props.tickets[i].id === ticket_id){      
                 return this.props.tickets[i];
             }
         }
-
     }
 
-   
-
-
+    // if a next page url is provided from zendesks api, create a button to process should the user need it
     if (this.props.nextPageUrl !== null && this.props.nextPageUrl !== undefined) {
       nextButton = <button className="next-button" onClick={() => {this.props.getNextPage(this.props.nextPageUrl)}}> Next </button>;
     } 
-    
+
+    // if a previous page url is provided from zendesks api , create a button to process should the user need it
     if(this.props.prevPageUrl !== null && this.props.prevPageUrl !== undefined ){
       prevButton = <button className="prev-button" onClick={() => this.props.getPrevPage(this.props.prevPageUrl)}> Previous </button>;
     }
 
+    //if any errors exist , process accordingly
     if(this.props.error !== null  && this.props.error !== undefined){
         error = <Error message={this.props.error} />
     }
 
-
-    
-
-    return (
-        
+    return (      
         <div className="main-container-div" >
             <div className="tickets-container-div">
                 <DetailModal show={this.state.showModal} onHide={modalClose}  backdrop={true} ticket={this.state.currentlySelectedTicket}  />
@@ -112,8 +82,7 @@ class Home extends Component {
             {prevButton}
             {nextButton}
           </div>
-        </div>
-       
+        </div>     
     );
   }
 }
@@ -122,6 +91,7 @@ Home.PropType = {
     tickets: PropTypes.array.isRequired,
 };
 
+// map redux store state to this class props
 const mapStateToProps = state => ({
     tickets: state.tickets.ticketItems,
     nextPageUrl: state.tickets.nextPageUrl,
@@ -129,6 +99,7 @@ const mapStateToProps = state => ({
     error: state.tickets.error
 });
 
+// map functions from redux actions to props in this class
 const mapDispatchToProps = dispatch => {
     return {
         getNextPage: nextPageUrl => {

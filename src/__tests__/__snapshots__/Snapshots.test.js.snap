@@ -1,13 +1,53 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`App snapshot test 1`] = `
-<div
-  className="tickets-list"
->
-  <ul
-    className="list-group  my-list-group bg-dark list-group-flush "
-  />
-</div>
+Array [
+  <div
+    className="jumbotron jumbotron-fuild shadow-lg"
+  >
+    <div
+      className="container"
+    >
+      <h1
+        className="display-3  shadow-lg"
+      >
+         Zendesk Ticket Viewer 
+      </h1>
+    </div>
+  </div>,
+  <div
+    className="main-container-div"
+  >
+    <div
+      className="tickets-container-div"
+    >
+      <div
+        className="tickets-list"
+      >
+        <ul
+          className="list-group  my-list-group bg-dark list-group-flush "
+        />
+      </div>
+    </div>
+    <div
+      className="pagination-buttons-div"
+    />
+  </div>,
+  <footer
+    className="footer"
+  >
+    <div
+      id="footer-container-div"
+    >
+      Zane Keyan - Zendesk Ticket viewer
+      <a
+        href="https://github.com/zanekeyan/ticket-viewer"
+      >
+        --Github source code--
+      </a>
+    </div>
+  </footer>,
+]
 `;
 
 exports[`Error snapshot test 1`] = `
