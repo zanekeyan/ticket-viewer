@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ticketicon from '../ticket.png'
-import TicketInfoModal from '../components/TicketInfoModal'
 
 
 const Ticket = props => {
@@ -18,12 +17,12 @@ const Ticket = props => {
             <p> subject: {props.subject} </p>
             <p> ticket_id: {props.id} </p> 
             <p> created_at: {props.created_at}</p>
-            <p> submitter_id: {props.submitter_id} </p>
             <button
                 type="button"
                 className="btn btn-outline-light shadow-lg"
-                onClick={() => { }} 
+                onClick={() => props.onShowDetails(props.id)} 
             > Ticket Details </button>
+            
             
              
             </div>

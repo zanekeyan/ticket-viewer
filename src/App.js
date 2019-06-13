@@ -11,23 +11,15 @@ import './App.css';
 class App extends Component{
 
     componentDidMount() {
-        alert('dispatching action')
         store.dispatch(fetchTickets());
     }
     render () {
         return (
-            <div className="App">
-            <header className="App-header">
             <Provider store={store}>
                 <Router>
-                <div>
                     <Route exact path="/" component={Home} />
-                </div>
                 </Router>
             </Provider>
-                
-            </header>
-            </div>
         );
     }
 }

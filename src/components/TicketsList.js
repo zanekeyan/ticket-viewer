@@ -14,6 +14,7 @@ const  TicketsList  = props =>{
             subject={ticket.subject}
             submitter_id={ticket.submitter_id}
             created_at={ticket.created_at}
+            onShowDetails={props.onShowDetails}
             />
         ));
     }

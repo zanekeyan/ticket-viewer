@@ -1,69 +1,68 @@
-import React, { Component } from 'react';
-import { Button, ButtonGroup, ButtonToolbar } from 'react-bootstrap-buttons';
-import Modal from 'react-bootstrap-modal';
+import React, { Component } from "react";
+import Modal from "react-bootstrap-modal";
+import Button from 'react-bootstrap/Button';
 
 
-class Example extends React.Component{
-
-    constructor(props) {
-        super(props);
-
-        this.state = {
-          showModal: false
-        };
-
-        this.close = this.close.bind(this);
-        this.open = this.open.bind(this);
-        this.getInitialState = this.getInitialState.bind(this);
-    }
-  getInitialState() {
-    return { showModal: false };
-  }
-
-  close() {
-    this.setState({ showModal: false });
-  }
-
-  open() {
-    this.setState({ showModal: true });
-  }
-
-  render() {
-    
+class TicketInfoModal extends Component {
+  showDetail = (label, detail, width, isImportant) => {
+    var className = "col-sm-" + width + " detail-col text-capitalize";
+    if (isImportant) className += " text-success  font-weight-bold";
     return (
-      <div>
-        <p>Click to get the full Modal experience!</p>
+      <div className={className}>
+        <h4>{label} {detail}</h4>
 
-        <Button
-          bsStyle="primary"
-          bsSize="large"
-          onClick={this.open}
-        >
-          Launch demo modal
-        </Button>
-
-        <Modal show={this.state.showModal} onHide={this.close}>
-          <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <h4>Text in a modal</h4>
-            <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
-
-            <h4>Popover in a modal</h4>
-            
-
-            <hr />
-
-          </Modal.Body>
-          <Modal.Footer>
-            <Button onClick={this.close}>Close</Button>
-          </Modal.Footer>
-        </Modal>
       </div>
     );
-  }
-};
+  };
 
-export default Example;
-  
+  render() {
+
+    let modal;
+    let error;
+
+
+
+    return (
+        <React.Fragment>
+    <Modal
+      {...this.props}
+      animation="true"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered="true"
+      className="modalPopup" 
+    >
+    
+      <Modal.Header className="modal-header" closeButton>
+        <Modal.Title className="modal-title">{this.props.ticket.subject}</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <div className="container ">
+          <div className=" detailContainer text-center ">
+            {/* <h2 className="font-weight-bold text-capitalize">
+
+            </h2> */}
+            <p>
+                {this.props.ticket.description}
+            </p>
+            <div className="more-details-container text-left ">
+              <div className="row detail-row">
+              {this.showDetail("created_at: ", this.props.ticket.created_at ,  2 )}
+              {this.showDetail("updated_at: ", this.props.ticket.updated_at ,  2 )}
+              </div>
+              <div className="row detail-row ">
+              {this.showDetail("ticket id: ", this.props.ticket.id ,  2 )}
+              {this.showDetail("updated_at: ", this.props.ticket.updated_at ,  2 )}
+              </div>
+            </div>
+          </div>
+        </div>
+      </Modal.Body>
+            <Button variant="primary">Primary</Button>
+    </Modal>
+  </React.Fragment>
+
+    );
+  }
+}
+
+export default TicketInfoModal;

@@ -3,10 +3,14 @@
     box-sizing: border-box;
     display: inline-block;
     height: 150px;
-    width: 33%;
+    width: 50%;
     border-width: 1px;
     border-style: solid;
     border-color: lightgreen;
+}
+
+.list-group {
+    list-style-type: none;
 }
 .ticketImage {
     float: left;
@@ -14,13 +18,14 @@
 }
 
 .ticketInfo {
-    height: 100%;
-    font-size: 10px;
+    font-size: 13px;
 }
 .img-thumbnail {
     max-width: 150px !important;
     max-height: 100px !important;
     background-color: transparent !important;
 }
+
+
 
 

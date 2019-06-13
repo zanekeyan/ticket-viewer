@@ -1,0 +1,20 @@
+@import './error.css';
+@import './ticket.css';
+@import './ticketinfomodal.css';
+
+.modalPopup {
+    background-color:gray;
+
+    position: absolute;
+    /* Additions */
+    left: 25%;
+    right: 25%;
+    top: 25%;
+    background: gray;
+    color: white;
+  }
+
+  #root{
+      background: rgb(68, 81, 95);
+      color: wheat;
+  }
