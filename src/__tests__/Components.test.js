@@ -1,13 +1,14 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { findByTestAtrr } from '../Utils.js';
 import ReactDOM from 'react-dom';
 import App from '../App';
 import Error from '../components/Error';
 import Ticket from '../components/Ticket'
 import TicketList from '../components/TicketsList'
 import TicketInfoModal from '../components/TicketInfoModal'
-import {emptyTicket} from '../Utils.js/index'
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import {emptyTicket , findByTestAtrr } from '../util/index'
 
 const setUp = (Component , props={}) => {
     const component = shallow(<Component {...props} />);
@@ -61,4 +62,26 @@ describe('TicketInfoModal Component Should render correctly', () => {
         expect(wrapper.length).toBe(1);
     });
 });
+
+describe('Header Component Should render correctly', () => {
+    let component;
+    component = setUp(Header); 
+
+    it('Should render without errors', () => {
+        const wrapper = findByTestAtrr(component, 'container');
+        expect(wrapper.length).toBe(1);
+    });
+});
+
+describe('Footer Component Should render correctly', () => {
+    let component;
+    component = setUp(Footer); 
+
+    it('Should render without errors', () => {
+        const wrapper = findByTestAtrr(component, 'footer');
+        expect(wrapper.length).toBe(1);
+    });
+});
+
+
 

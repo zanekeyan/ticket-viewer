@@ -5,7 +5,9 @@ import Error from '../components/Error';
 import Ticket from '../components/Ticket'
 import TicketList from '../components/TicketsList'
 import TicketInfoModal from '../components/TicketInfoModal'
-import {emptyTicket} from '../Utils.js/index'
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import {emptyTicket} from '../util/index'
 
 const setUp = (Component  ) => {
     const component = renderer.create(<Component />);
@@ -38,6 +40,18 @@ test('Error snapshot test' , () => {
 
 test('TicketInfoModal snapshot test' , () => {
     const component = renderer.create(<TicketInfoModal  ticket={emptyTicket} />);
+    const tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
+})
+
+test('Header snapshot test' , () => {
+    const component = setUp(Header)
+    const tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
+})
+
+test('Footer snapshot test' , () => {
+    const component = setUp(Footer)
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
 })

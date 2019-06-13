@@ -5,7 +5,7 @@ import TicketsList from '../components/TicketsList'
 import {fetchTickets} from '../store/actions/TicketActions';
 import Error from '../components/Error';
 import DetailModal from '../components/TicketInfoModal';
-import { emptyTicket} from '../Utils.js'
+import { emptyTicket} from '../util'
 
 class Home extends Component {
 
