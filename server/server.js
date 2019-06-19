@@ -37,7 +37,6 @@ app.get('/tickets', function (req, res) {
     // process request to from zendesk API 
     axiosInstance.get()
             .then((response) => {
-                console.log("Success" , response.data.tickets[0].id)
                 return res.send(response.data);
              })
              // catch any errors

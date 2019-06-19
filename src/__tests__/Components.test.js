@@ -149,7 +149,7 @@ describe('Header Component Should render correctly', () => {
     let component;
     component = setUp(Header); 
 
-    it('Should render without errors', () => {
+    it('Header render without errors', () => {
         const wrapper = findByTestAtrr(component, 'container');
         expect(wrapper.length).toBe(1);
     });
@@ -159,7 +159,7 @@ describe('Footer Component Should render correctly', () => {
     let component;
     component = setUp(Footer); 
 
-    it('Should render without errors', () => {
+    it('Footer render without errors', () => {
         const wrapper = findByTestAtrr(component, 'footer');
         expect(wrapper.length).toBe(1);
     });

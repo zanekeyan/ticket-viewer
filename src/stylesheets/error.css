@@ -1,8 +1,9 @@
 .error-div{
+    padding-left: 31%;
     font-size: 13px;
 }
 
-.big-icon{
-    height: 100px;
-    width: 100px;
+.bug-icon{
+    height: 400px;
+    width: 400px;
 }

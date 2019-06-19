@@ -8,16 +8,22 @@
 .modalPopup {
     background-color:gray;
 
-    position: absolute;
+    position: fixed;
     /* Additions */
     left: 25%;
     right: 25%;
     top: 25%;
     background: lightseagreen;
     color: white;
+    overflow-y: auto;
+    
   }
 
   #root{
       background: rgb(68, 81, 95);
       color: wheat;
   }
+
+.modalPopup-open {
+    overflow: auto;
+}
