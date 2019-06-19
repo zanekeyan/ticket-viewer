@@ -18,7 +18,7 @@ export const testStore = (initialState) => {
     return createStoreWithMiddleware(rootReducer, initialState);
 };
 
-export const emptyTicket= { 
+export const mockTicket= { 
     id: '',
     subject: '',
     description: ' ',

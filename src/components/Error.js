@@ -6,7 +6,7 @@ import '../stylesheets/error.css'
 const Error = props => {
     return (
         <div className="error-div">
-            <h1> Error: {props.message} </h1>    
+            <h1>Error: {props.message}</h1>    
             <img
                 src = {bugIcon}
                 className="bug-icon"

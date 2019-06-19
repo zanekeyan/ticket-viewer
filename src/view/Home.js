@@ -4,7 +4,7 @@ import TicketsList from '../components/TicketsList'
 import {fetchTickets} from '../store/actions/TicketActions';
 import Error from '../components/Error';
 import DetailModal from '../components/TicketInfoModal';
-import { emptyTicket} from '../util'
+import {  mockTicket} from '../util'
 
 class Home extends Component {
 
@@ -14,7 +14,7 @@ class Home extends Component {
         this.state = {
             currentTicketsData: null,
             showModal: false,
-            currentlySelectedTicket: emptyTicket
+            currentlySelectedTicket: mockTicket
         };
       }
 

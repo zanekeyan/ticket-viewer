@@ -7,7 +7,7 @@ import TicketList from '../components/TicketsList'
 import TicketInfoModal from '../components/TicketInfoModal'
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import {emptyTicket} from '../util/index'
+import {mockTicket} from '../util/index'
 
 const setUp = (Component  ) => {
     const component = renderer.create(<Component />);
@@ -39,7 +39,7 @@ test('Error snapshot test' , () => {
 })
 
 test('TicketInfoModal snapshot test' , () => {
-    const component = renderer.create(<TicketInfoModal  ticket={emptyTicket} />);
+    const component = renderer.create(<TicketInfoModal  ticket={mockTicket} />);
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
 })

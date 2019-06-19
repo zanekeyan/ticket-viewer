@@ -55,8 +55,7 @@ exports[`Error snapshot test 1`] = `
   className="error-div"
 >
   <h1>
-     Error: 
-     
+    Error: 
   </h1>
   <img
     alt="car icon"
@@ -110,7 +109,7 @@ exports[`Ticket snapshot test 1`] = `
       className="ticketImage"
     >
       <img
-        alt="car icon"
+        alt="ticket icon"
         className="img-thumbnail"
         src="ticket.png"
       />

@@ -7,6 +7,7 @@ const  TicketsList  = props =>{
     if(props.tickets !== undefined && props.tickets !== null){
         var tickets = props.tickets.map(ticket => (
             <Ticket 
+            key={ticket.id}
             id={ticket.id}
             subject={ticket.subject}
             submitter_id={ticket.submitter_id}

@@ -9,7 +9,7 @@ const Ticket = props => {
             <img
                 src = {ticketicon}
                 className="img-thumbnail"
-                alt="car icon" />
+                alt="ticket icon" />
             </div>
             <div className="ticketInfo">
                 <p> subject: {props.subject} </p>
